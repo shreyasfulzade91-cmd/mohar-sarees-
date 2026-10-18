@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mohar Sarees</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff8f5;
+      color: #3b1f1f;
+    }
+
+    header {
+      background: #741b32;
+      color: white;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      margin-left: 15px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .page {
+      display: none;
+      padding: 40px 6%;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px;
+      background: #f5ded5;
+    }
+
+    .hero h1 {
+      font-size: 45px;
+      color: #741b32;
+    }
+
+    .hero p {
+      margin: 15px 0 25px;
+      font-size: 18px;
+    }
+
+    .btn {
+      background: #741b32;
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    h2 {
+      text-align: center;
+      color: #741b32;
+      margin-bottom: 30px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 15px rgba(0,0,0,.1);
+      padding-bottom: 15px;
+    }
+
+    .product img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product h3 {
+      margin-bottom: 8px;
+    }
+
+    .price {
+      color: #741b32;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .form {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 15px rgba(0,0,0,.1);
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 18px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    .summary {
+      background: #fff0ea;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .payment {
+      max-width: 500px;
+      margin: auto;
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 3px 15px rgba(0,0,0,.1);
+    }
+
+    footer {
+      background: #3b1f1f;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
+
+    @media(max-width:600px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav button {
+        font-size: 12px;
+        margin-left: 5px;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    🌸 Mohar Sarees
+  </div>
+
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('collection')">Our Collection</button>
+    <button onclick="showPage('checkout')">Checkout 🛒</button>
+    <button onclick="showPage('payment')">Payment</button>
+  </nav>
+
+</header>
+
+
+<!-- PAGE 1 : ALL SAREES -->
+
+<div id="home" class="page active">
+
+  <div class="hero">
+
+    <h1>Mohar Sarees</h1>
+
+    <p>
+      Traditional Elegance • Modern Style
+    </p>
+
+    <button class="btn"
+      onclick="showPage('collection')">
+      Explore Collection
+    </button>
+
+  </div>
+
+  <section>
+
+    <h2>All Sarees</h2>
+
+    <div class="products">
+
+      <!-- Saree 1 -->
+
+      <div class="product">
+
+        <img src="https://placehold.co/600x700?text=Paithani+Saree">
+
+        <div class="product-info">
+
+          <h3>Traditional Paithani</h3>
+
+          <p>
+            Beautiful traditional Paithani saree.
+          </p>
+
+          <div class="price">
+            ₹2,999
+          </div>
+
+          <button class="btn"
+            onclick="buyProduct('Traditional Paithani',2999)">
+            Buy Now
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- Saree 2 -->
+
+      <div class="product">
+
+        <img src="https://placehold.co/600x700?text=Silk+Saree">
+
+        <div class="product-info">
+
+          <h3>Premium Silk Saree</h3>
+
+          <p>
+            Elegant silk saree for special occasions.
+          </p>
+
+          <div class="price">
+            ₹3,499
+          </div>
+
+          <button class="btn"
+            onclick="buyProduct('Premium Silk Saree',3499)">
+            Buy Now
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- Saree 3 -->
+
+      <div class="product">
+
+        <img src="https://placehold.co/600x700?text=Designer+Saree">
+
+        <div class="product-info">
+
+          <h3>Designer Saree</h3>
+
+          <p>
+            Stylish designer saree.
+          </p>
+
+          <div class="price">
+            ₹2,499
+          </div>
+
+          <button class="btn"
+            onclick="buyProduct('Designer Saree',2499)">
+            Buy Now
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<!-- PAGE 2 : COLLECTION -->
+
+<div id="collection" class="page">
+
+  <h2>Our Collection</h2>
+
+  <div class="products">
+
+    <div class="product">
+
+      <img src="https://placehold.co/600x700?text=Paithani">
+
+      <div class="product-info">
+
+        <h3>Paithani Collection</h3>
+
+        <p>
+          Traditional Paithani sarees.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <img src="https://placehold.co/600x700?text=Silk">
+
+      <div class="product-info">
+
+        <h3>Silk Collection</h3>
+
+        <p>
+          Premium silk sarees.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="product">
+
+      <img src="https://placehold.co/600x700?text=Designer">
+
+      <div class="product-info">
+
+        <h3>Designer Collection</h3>
+
+        <p>
+          Latest designer sarees.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- PAGE 3 : CHECKOUT -->
+
+<div id="checkout" class="page">
+
+  <h2>Checkout</h2>
+
+  <div class="form">
+
+    <div class="summary">
+
+      <h3>Order Summary</h3>
+
+      <p id="orderName">
+        No product selected.
+      </p>
+
+      <p id="orderPrice">
+        ₹0
+      </p>
+
+    </div>
+
+
+    <label>
+      Full Name
+    </label>
+
+    <input
+      type="text"
+      id="customerName"
+      placeholder="Enter your name">
+
+
+    <label>
+      Mobile Number
+    </label>
+
+    <input
+      type="tel"
+      id="mobile"
+      placeholder="Enter mobile number">
+
+
+    <label>
+      Delivery Address
+    </label>
+
+    <textarea
+      id="address"
+      placeholder="Enter complete address">
+    </textarea>
+
+
+    <button
+      class="btn"
+      onclick="goToPayment()">
+
+      Continue to Payment
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- PAGE 4 : PAYMENT -->
+
+<div id="payment" class="page">
+
+  <h2>Payment</h2>
+
+  <div class="payment">
+
+    <h3>Mohar Sarees</h3>
+
+    <br>
+
+    <p>
+      Amount to Pay
+    </p>
+
+    <h1 id="paymentAmount">
+      ₹0
+    </h1>
+
+    <br>
+
+    <select id="paymentMethod">
+
+      <option>
+        Cash on Delivery
+      </option>
+
+      <option>
+        UPI
+      </option>
+
+      <option>
+        Online Payment
+      </option>
+
+    </select>
+
+    <button
+      class="btn"
+      onclick="placeOrder()">
+
+      Place Order
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  <p>
+    © 2026 Mohar Sarees
+  </p>
+
+  <p>
+    Traditional Elegance • Modern Style
+  </p>
+
+</footer>
+
+
+<script>
+
+let selectedProduct = "";
+let selectedPrice = 0;
+
+
+// PAGE CHANGE
+
+function showPage(page) {
+
+  document
+    .querySelectorAll(".page")
+    .forEach(function(p) {
+
+      p.classList.remove("active");
+
+    });
+
+  document
+    .getElementById(page)
+    .classList.add("active");
+
+  window.scrollTo(0,0);
+}
+
+
+// BUY PRODUCT
+
+function buyProduct(name, price) {
+
+  selectedProduct = name;
+
+  selectedPrice = price;
+
+  document.getElementById("orderName")
+    .innerText = name;
+
+  document.getElementById("orderPrice")
+    .innerText = "₹" + price;
+
+  showPage("checkout");
+
+}
+
+
+// PAYMENT
+
+function goToPayment() {
+
+  let name =
+    document.getElementById("customerName").value;
+
+  let mobile =
+    document.getElementById("mobile").value;
+
+  let address =
+    document.getElementById("address").value;
+
+
+  if(name === "" ||
+     mobile === "" ||
+     address === "") {
+
+    alert("Please fill all details.");
+
+    return;
+  }
+
+
+  document.getElementById("paymentAmount")
+    .innerText = "₹" + selectedPrice;
+
+  showPage("payment");
+
+}
+
+
+// ORDER
+
+function placeOrder() {
+
+  alert(
+    "Thank you for ordering from Mohar Sarees! Your order has been received."
+  );
+
+}
+
+</script>
+
+</body>
+      </html>
